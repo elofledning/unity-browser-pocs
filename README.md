@@ -88,7 +88,7 @@ RotatingCubePOC/
 
 - **Rotation Controls**: The cube rotates based on mouse delta movement
 - **Input Handling**: Uses Unity's Input system to detect mouse button and position
-- **Rotation Speed**: Configurable via the `rotationSpeed` parameter in the Inspector (default: 50)
+- **Rotation Speed**: Configurable via the `rotationSpeed` parameter in the Inspector (default: 5)
 
 ### Troubleshooting
 

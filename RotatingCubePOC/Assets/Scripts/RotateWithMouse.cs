@@ -29,11 +29,15 @@ public class RotateWithMouse : MonoBehaviour
         {
             Vector3 delta = Input.mousePosition - lastMousePosition;
             
+            // Normalize delta by screen height for resolution independence
+            float normalizedDeltaX = delta.x / Screen.height;
+            float normalizedDeltaY = delta.y / Screen.height;
+            
             // Rotate around Y axis based on horizontal mouse movement
-            transform.Rotate(Vector3.up, delta.x * rotationSpeed * Time.deltaTime, Space.World);
+            transform.Rotate(Vector3.up, normalizedDeltaX * rotationSpeed * 100f, Space.World);
             
             // Rotate around X axis based on vertical mouse movement
-            transform.Rotate(Vector3.right, -delta.y * rotationSpeed * Time.deltaTime, Space.World);
+            transform.Rotate(Vector3.right, -normalizedDeltaY * rotationSpeed * 100f, Space.World);
             
             lastMousePosition = Input.mousePosition;
         }
