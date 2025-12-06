@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Cube POC</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 960px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .instructions {
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        #unity-container {
+            width: 960px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #unity-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #unity-loading-bar {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #unity-progress-bar-empty {
+            width: 300px;
+            height: 18px;
+            background-color: #555;
+            border-radius: 9px;
+        }
+
+        #unity-progress-bar-full {
+            width: 0%;
+            height: 18px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 9px;
+        }
+
+        .footer {
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: 960px) {
+            #unity-container {
+                width: 100%;
+                height: 0;
+                padding-bottom: 62.5%; /* 16:10 aspect ratio */
+                position: relative;
+            }
+
+            #unity-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rotating Cube POC</h1>
+        <div class="instructions">
+            Click and drag the mouse on the cube to rotate it in 3D space
+        </div>
+        <div id="unity-container">
+            <canvas id="unity-canvas"></canvas>
+            <div id="unity-loading-bar">
+                <div id="unity-progress-bar-empty">
+                    <div id="unity-progress-bar-full"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Unity WebGL Build | Mouse to Rotate
+        </div>
+    </div>
+
+    <!-- 
+    This is a template HTML file for hosting the Unity WebGL build.
+    
+    To use this file:
+    1. Build your Unity project for WebGL
+    2. Copy the Build folder contents to the same directory as this HTML file
+    3. Update the paths below to match your build folder structure
+    4. Uncomment and configure the Unity Loader script
+    
+    Example structure after build:
+    - index.html (this file)
+    - Build/
+      - RotatingCubePOC.loader.js
+      - RotatingCubePOC.data
+      - RotatingCubePOC.framework.js
+      - RotatingCubePOC.wasm
+    -->
+
+    <!--
+    <script src="Build/RotatingCubePOC.loader.js"></script>
+    <script>
+        var canvas = document.querySelector("#unity-canvas");
+        var loadingBar = document.querySelector("#unity-loading-bar");
+        var progressBarFull = document.querySelector("#unity-progress-bar-full");
+
+        loadingBar.style.display = "block";
+
+        createUnityInstance(canvas, {
+            dataUrl: "Build/RotatingCubePOC.data",
+            frameworkUrl: "Build/RotatingCubePOC.framework.js",
+            codeUrl: "Build/RotatingCubePOC.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "RotatingCubePOC",
+            productVersion: "0.1.0",
+        }, (progress) => {
+            progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+            loadingBar.style.display = "none";
+        }).catch((message) => {
+            alert(message);
+        });
+    </script>
+    -->
+
+</body>
+</html>

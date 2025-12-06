@@ -58,6 +58,12 @@ npx http-server Builds/WebGL -p 8000
 
 - Open your browser and go to `http://localhost:8000`
 
+**Option C: Using the Included HTML Template**
+- An `index.html` template file is provided in the `RotatingCubePOC` folder
+- After building, copy the Build folder from your WebGL build to the same directory as `index.html`
+- Uncomment the script section at the bottom of `index.html` and adjust the file paths to match your build
+- Serve the directory with a local web server as described in Option B
+
 ### How to Use
 
 Once the project is running in your browser:
